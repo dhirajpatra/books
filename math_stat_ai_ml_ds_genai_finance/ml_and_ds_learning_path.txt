@@ -1,0 +1,73 @@
+Math and Statistics
+Linux and shell
+Git, SQL and Tableau
+Python, numpy, pandas, matplotlib, seaborn
+Introduction to Machine Learning and Deep Learning
+Data processing and Regression model
+Classification
+Machine Learning algorithm
+Introduction to Artification Neural Networks and Keras
+Training Deep Neural Network
+Custom Model and training with Tensoflow
+Loading and processing data with tensorflow
+Deep computer vision with convolution neural network
+Processing sequence using RNN and CNN
+Natural language processing and RNN
+Representation learning and generative learning using autoencoders and GANs
+Reinforcement learning
+Kaggle projects and competition
+----------------------------------------------------------------------------------------
+
+DATA SCIENCE BASICS
+Data Science Life Cycle
+Motivation and Applications
+Version Control
+GitHub
+R
+Cloud Technologies
+
+DESCRIPTIVE ANALYTICS
+Data Visualisation using R and Tableau
+Statistical Measures
+Probability and Random Variable
+Binomial and Normal Distributions
+
+DATA COLLECTION AND PREPARATION
+Data Collection from the Web
+APIs
+Database
+Data Cleaning
+Handling Missing Data and Outliers
+Normalisation and Standardisation
+
+PREDICTIVE ANALYTICS
+Hypothesis Testing
+Chi-Square Tests
+Analysis of Variance
+Linear and Logistic Regression
+
+MACHINE LEARNING
+Supervised and Unsupervised Machine Learning
+Hierarchical and k-means Clustering
+Principal Component and Exploratory Factor Analysis
+Decision Tree and Random Forest
+Support Vector Machine
+NLP: Text, Web, Social, Image
+
+PRESCRIPTIVE ANALYTICS AND FORECASTING
+Linear and Nonlinear Optimisation
+Simulation
+Time Series Analysis and Forecasting
+Nowcasting
+
+BIG DATA
+Data Scraping: Extracting Data from Twitter and Instagram
+Data Storage: No SQL and Hadoop Ecosystem
+Data Processing: PIG, HIVE, Spark, and In-memory Analytics
+COGNITIVE ANALYTICS
+Artificial Intelligence
+
+Deep Learning: Backpropagation
+RNN
+CNN
+Recommender Systems
