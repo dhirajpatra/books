@@ -1,0 +1,119 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "background": "#ffffff",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "clusterBkg": "#ffffff",
+    "clusterBorder": "#000000",
+    "edgeLabelBackground": "#ffffff",
+    "fontFamily": "arial",
+    "textColor": "#000000"
+  }
+}}%%
+flowchart TB
+    subgraph CLIENT["Client / Interface Layer"]
+        A1[Discord]
+        A2[Telegram]
+        A3["X / Twitter"]
+        A4[Farcaster]
+        A5["WhatsApp / iMessage"]
+        A6["HTTP / REST API"]
+        A7["Web / Desktop / Mobile UI"]
+        A8["Onchain Events"]
+    end
+
+    subgraph BUS["Unified Message Bus"]
+        B1["Transport Adapters"]
+        B2["Event Pipeline"]
+    end
+
+    subgraph RUNTIME["Agent Runtime (Core)"]
+        C1["AgentRuntime"]
+        C2["Character File\n(JSON Personality Config)"]
+        C3["State Manager"]
+        C4["Message Processor"]
+    end
+
+    subgraph SWARM["Composable Swarms"]
+        D1["Worlds\n(Server / Workspace)"]
+        D2["Rooms\n(Channel / DM)"]
+        D3["Agent-to-Agent Signaling\n(Delegation, Consensus, Load-Balancing)"]
+    end
+
+    subgraph COGNITION["Cognitive Components"]
+        E1["Actions\n(Tool Calls / Real Operations)"]
+        E2["Providers\n(Context Injection)"]
+        E3["Evaluators\n(Response Scoring / Reflection)"]
+        E4["Action Chaining Planner\n(Branch / Schedule / Parallel / Pause)"]
+    end
+
+    subgraph MEMORY["Memory & Knowledge"]
+        F1["Vector Memory Store\n(Similarity Search)"]
+        F2["RAG Pipeline"]
+        F3["Document Ingestion"]
+    end
+
+    subgraph MODEL["Model Layer"]
+        G1["Model Router"]
+        G2[OpenAI]
+        G3[Anthropic]
+        G4["Local Eliza-1 Models\n(2B-27B, on-device)"]
+        G5["Other LLMs\n(Llama, Grok, Gemini)"]
+    end
+
+    subgraph WEB3["Web3 / Trust Layer"]
+        H1["Blockchain Read/Write"]
+        H2["Smart Contract Interaction"]
+        H3["Wallet Integration\n(e.g. Solana)"]
+        H4["Trust Scoring\n(Transaction Safety)"]
+    end
+
+    subgraph PLUGIN["Plugin System"]
+        I1["Community Plugins"]
+        I2["Custom Actions"]
+        I3["Service Extensions"]
+    end
+
+    A1 & A2 & A3 & A4 & A5 & A6 & A7 & A8 --> B1
+    B1 --> B2
+    B2 --> C4
+    C2 --> C1
+    C4 --> C1
+    C1 --> C3
+    C1 --> D1
+    D1 --> D2
+    D2 --> D3
+    D3 -.-> C1
+
+    C1 --> E4
+    E4 --> E1
+    E4 --> E2
+    E4 --> E3
+
+    E2 --> F2
+    F2 --> F1
+    F3 --> F1
+
+    E1 --> G1
+    G1 --> G2
+    G1 --> G3
+    G1 --> G4
+    G1 --> G5
+
+    E1 --> H1
+    H1 --> H2
+    H1 --> H3
+    H3 --> H4
+
+    I1 --> E1
+    I2 --> E1
+    I3 --> E2
+
+    B2 -.->|responses| A1 & A2 & A3 & A4 & A5 & A6 & A7
+
+    classDef default fill:#ffffff,stroke:#000000,stroke-width:1px,color:#000000;

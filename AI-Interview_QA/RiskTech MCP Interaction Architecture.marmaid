@@ -1,0 +1,244 @@
+graph LR
+    subgraph B2BTechStack["B2B Tech Stack"]
+        subgraph UserInterfaceAndExperience["User Interface And Experience"]
+            subgraph Dashboards["Dashboards"]
+                direction TB
+                Dashboards1[Executive Dashboards]
+                Dashboards2[Operational Dashboards]
+                Dashboards3[Risk Based Views]
+                Dashboards4[Content Widgets]
+                Dashboards5[Real Time Metrics]
+            end
+            subgraph Analytics["Analytics"]
+                direction TB
+                Analytics1[Interactive Analysis]
+                Analytics2[Drill Down Capabilities]
+                Analytics3[Visualization Tools]
+                Analytics4[Self Service Analysis]
+                Analytics5[Comparative Analysis]
+            end
+            subgraph Alerts["Alerts"]
+                direction TB
+                Alerts1[Threshold Alerts]
+                Alerts2[Event Driven Alerts]
+                Alerts3[Escalation Workflows]
+                Alerts4[User Notifications]
+                Alerts5[Multi-Channel Delivery]
+            end
+            Dashboards --- UserInterfaceAndExperience
+            Analytics --- UserInterfaceAndExperience
+            Alerts --- UserInterfaceAndExperience
+        end
+
+        subgraph SecurityAndCompliance["Security And Compliance"]
+            subgraph Authentication["Authentication"]
+                direction TB
+                Authentication1[Single Sign On]
+                Authentication2[Multi Factor Authentication]
+                Authentication3[Federated Identity]
+                Authentication4[Session Management]
+            end
+            subgraph Authorization["Authorization"]
+                direction TB
+                Authorization1[Role Based Access Control]
+                Authorization2[Attribute Based Access Control]
+                Authorization3[Segregation Of Duties]
+                Authorization4[Privileged Access Management]
+            end
+            subgraph AuditTrails["Audit Trails"]
+                direction TB
+                AuditTrails1[User Activity Logging]
+                AuditTrails2[Data Change History]
+                AuditTrails3[Access Monitoring]
+                AuditTrails4[Compliance Guidelines]
+                AuditTrails5[Immutable Logs]
+            end
+            subgraph ComplianceControls["Compliance Controls"]
+                direction TB
+                ComplianceControls1[Policy Enforcement]
+                ComplianceControls2[Regulatory Mapping]
+                ComplianceControls3[Data Privacy Controls]
+                ComplianceControls4[Retention Policies]
+                ComplianceControls5[Control Testing]
+            end
+            Authentication --- SecurityAndCompliance
+            Authorization --- SecurityAndCompliance
+            AuditTrails --- SecurityAndCompliance
+            ComplianceControls --- SecurityAndCompliance
+        end
+
+        subgraph DataAndAnalytics["Data And Analytics"]
+            subgraph Storage["Storage"]
+                direction TB
+                Storage1[Structured Data Storage]
+                Storage2[Unstructured Data Storage]
+                Storage3[Historical Archives]
+                Storage4[Data Partitioning]
+                Storage5[Data Lifecycle Management]
+            end
+            subgraph Processing["Processing"]
+                direction TB
+                Processing1[Stream Processing]
+                Processing2[Batch Processing]
+                Processing3[Transformation Engines]
+                Processing4[Aggregation]
+                Processing5[Data Compression]
+                Processing6[Semantic Modeling]
+            end
+            subgraph MLAndAICapabilities["ML And AI Capabilities"]
+                direction TB
+                MLAndAICapabilities1[Predictive Risk Models]
+                MLAndAICapabilities2[Anomaly Detection]
+                MLAndAICapabilities3[Natural Language Processing]
+                MLAndAICapabilities4[Recommendation Engines]
+                MLAndAICapabilities5[Model Governance]
+                MLAndAICapabilities6[Feature Engineering]
+                MLAndAICapabilities7[Model Monitoring]
+            end
+            Storage --- DataAndAnalytics
+            Processing --- DataAndAnalytics
+            MLAndAICapabilities --- DataAndAnalytics
+        end
+
+        subgraph CrossCuttingCapabilities["Cross Cutting Capabilities"]
+            subgraph Governance["Governance"]
+                direction TB
+                Governance1[Architecture Standards]
+                Governance2[Service Catalog]
+                Governance3[Ownership Model]
+                Governance4[Change Management]
+            end
+            subgraph Operations["Operations"]
+                direction TB
+                Operations1[Platform Monitoring]
+                Operations2[Incident Management]
+                Operations3[Release Management]
+                Operations4[Capacity Planning]
+            end
+            subgraph Scalability["Scalability"]
+                direction TB
+                Scalability1[Cloud Native Design]
+                Scalability2[Resilience Patterns]
+                Scalability3[Performance Optimization]
+                Scalability4[Service Level Management]
+            end
+            subgraph Interoperability["Interoperability"]
+                direction TB
+                Interoperability1[Canonical Data Models]
+                Interoperability2[Event Consuming]
+                Interoperability3[Schema Registry]
+            end
+            Governance --- CrossCuttingCapabilities
+            Operations --- CrossCuttingCapabilities
+            Scalability --- CrossCuttingCapabilities
+            Interoperability --- CrossCuttingCapabilities
+        end
+
+        subgraph CorePlatform["Core Platform"]
+            subgraph Infrastructure["Infrastructure"]
+                direction TB
+                Infrastructure1[Cloud Environment]
+                Infrastructure2[Compute Resources]
+                Infrastructure3[Container Orchestration]
+                Infrastructure4[Network Architecture]
+                Infrastructure5[Scalability]
+                Infrastructure6[High Availability]
+                Infrastructure7[Disaster Recovery]
+                Infrastructure8[Observability]
+            end
+            subgraph DataLayer["Data Layer"]
+                direction TB
+                DataLayer1[Operational Databases]
+                DataLayer2[Data Lake]
+                DataLayer3[Data Warehouse]
+                DataLayer4[Metadata Management]
+                DataLayer5[Master Data Management]
+                DataLayer6[Data Quality Controls]
+                DataLayer7[Data Governance]
+                DataLayer8[Backup And Recovery]
+            end
+            subgraph Services["Services"]
+                direction TB
+                Services1[Microservices Framework]
+                Services2[Business Logic Services]
+                Services3[Workflow Engine]
+                Services4[Rules Engine]
+                Services5[Notification Services]
+                Services6[Configuration Management]
+                Services7[Scheduling Services]
+                Services8[System Administration Services]
+            end
+            subgraph APIs["APIs"]
+                direction TB
+                APIs1[Internal APIs]
+                APIs2[External APIs]
+                APIs3[API Gateway]
+                APIs4[API Management]
+                APIs5[Versioning]
+                APIs6[Rate Limiting]
+                APIs7[Developer Portal]
+            end
+            Infrastructure --- CorePlatform
+            DataLayer --- CorePlatform
+            Services --- CorePlatform
+            APIs --- CorePlatform
+        end
+
+        subgraph IntegrationLayer["Integration Layer"]
+            subgraph Connectors["Connectors"]
+                direction TB
+                Connectors1[Enterprise Systems Connectors]
+                Connectors2[Third Party Data Providers]
+                Connectors3[Regulatory Systems Interfaces]
+                Connectors4[Identity Provider Integration]
+                Connectors5[File Based Connectors]
+                Connectors6[Streaming Connectors]
+            end
+            subgraph DataPipelines["Data Pipelines"]
+                direction TB
+                DataPipelines1[Batch Ingestion]
+                DataPipelines2[Real-Time Ingestion]
+                DataPipelines3[Data Transformation]
+                DataPipelines4[Data Validation]
+                DataPipelines5[Data Enrichment]
+                DataPipelines6[Event Streaming]
+                DataPipelines7[Orchestration]
+                DataPipelines8[Pipeline Monitoring]
+            end
+            Connectors --- IntegrationLayer
+            DataPipelines --- IntegrationLayer
+        end
+
+        subgraph RiskManagementHub["Risk Management Hub"]
+            subgraph Assessment["Assessment"]
+                direction TB
+                Assessment1[Risk Identification]
+                Assessment2[Risk Scoring]
+                Assessment3[Control Evaluation]
+                Assessment4[Scenario Analysis]
+                Assessment5[Inherent Risk Assessment]
+                Assessment6[Residual Risk Assessment]
+            end
+            subgraph Monitoring["Monitoring"]
+                direction TB
+                Monitoring1[Key Risk Indicators]
+                Monitoring2[Threshold Monitoring]
+                Monitoring3[Continuous Control Monitoring]
+                Monitoring4[Issue Tracking]
+                Monitoring5[Exception Management]
+                Monitoring6[Trend Analysis]
+            end
+            subgraph Reporting["Reporting"]
+                direction TB
+                Reporting1[Regulatory Reporting]
+                Reporting2[Management Reporting]
+                Reporting3[Board Reporting]
+                Reporting4[Operational Reports]
+                Reporting5[Ad-hoc Reporting]
+                Reporting6[Report Distribution]
+            end
+            Assessment --- RiskManagementHub
+            Monitoring --- RiskManagementHub
+            Reporting --- RiskManagementHub
+        end
+    end
