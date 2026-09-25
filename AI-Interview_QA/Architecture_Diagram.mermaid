@@ -1,0 +1,60 @@
+flowchart TD
+    subgraph INGEST["Document Ingestion Layer"]
+        A1[Bank Statements\nOnboarding Forms\nLoan Applications] -->|Upload| A2[S3 Raw Landing Bucket]
+        A2 -->|Trigger| A3[SQS Queue]
+        A3 --> A4[Lambda Orchestrator]
+    end
+
+    subgraph AGENTS["Multi-Agent MCP Layer  ·  Claude claude-sonnet-4-6 via Bedrock"]
+        A4 --> B1[Classifier Agent\nDocument type detection]
+        B1 --> B2[Extraction Agent\nTextract + NER via Comprehend]
+        B2 --> B3[Validation Agent\nSchema + confidence checks]
+        B3 -->|Low confidence| B4[HITL Review Queue\nHuman-in-the-loop]
+        B3 -->|High confidence| B5[Routing Agent\nDestination selection]
+    end
+
+    subgraph PLATFORM["Unified Data Platform  ·  Lakehouse on S3 + Iceberg"]
+        B5 --> C1[Bronze Zone\nRaw structured JSON]
+        C1 -->|Glue ETL| C2[Silver Zone\nCleansed & deduplicated]
+        C2 -->|Glue ETL| C3[Gold Zone\nBusiness aggregates]
+        C3 --> C4[Redshift Serverless\nBI & executive queries]
+        C3 --> C5[Aurora RDS\nOperational store for underwriters]
+        C3 --> C6[ElasticSearch\nFull-text document search]
+        C2 --> C7[SageMaker Feature Store]
+    end
+
+    subgraph ML["ML Platform  ·  SageMaker"]
+        C7 --> D1[Training Pipelines\nChurn · Credit Risk · Recommendations]
+        D1 --> D2[Model Registry]
+        D2 --> D3[Inference Endpoints\nA/B deployed]
+        D1 -->|Drift detected| D1
+    end
+
+    subgraph INSIGHT["Insight & Action Layer"]
+        C4 --> E1[QuickSight\nExecutive Dashboards]
+        C5 --> E2[Underwriter Portal\nReact + API Gateway]
+        C6 --> E2
+        D3 --> E2
+        D3 --> E3[Personalisation Engine\nProduct Recommendations]
+    end
+
+    subgraph SECURITY["Security · OWASP ASVS Level 2"]
+        S1[Macie · PII Detection]
+        S2[KMS · Field Encryption]
+        S3[IAM + Cognito · AuthN/AuthZ]
+        S4[WAF + API Gateway]
+        S5[CloudTrail + GuardDuty]
+        S6[Secrets Manager]
+    end
+
+    INGEST -.->|governed by| SECURITY
+    AGENTS -.->|governed by| SECURITY
+    PLATFORM -.->|governed by| SECURITY
+    INSIGHT -.->|governed by| SECURITY
+
+    style INGEST fill:#EBF5FB,stroke:#2E5FA3
+    style AGENTS fill:#EAF4EA,stroke:#2E7D32
+    style PLATFORM fill:#FFF8E1,stroke:#F57F17
+    style ML fill:#FCE4EC,stroke:#C62828
+    style INSIGHT fill:#F3E5F5,stroke:#6A1B9A
+    style SECURITY fill:#ECEFF1,stroke:#455A64
